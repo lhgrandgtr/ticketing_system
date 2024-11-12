@@ -18,12 +18,14 @@ public class TicketConfig {
                     1L,
                     LocalDate.of(2024, Month.OCTOBER ,8),
                     "Taylor Shift concert",
+                    2000,
                     2000
                     );
             Ticket orchestra_ticket = new Ticket(
                     2L,
                     LocalDate.of(2024, Month.MARCH, 16),
                     "Classical Orchestra play",
+                    2000,
                     2500
             );
             repository.saveAll(

@@ -22,25 +22,37 @@ public class Ticket {
     private LocalDate expireDate;
     private String event;
     private double price;
+    private double amount;
+
 
     public Ticket() {}
 
-    public Ticket(Long id, LocalDate expireDate, String event, double price) {
+    public Ticket(Long id, LocalDate expireDate, String event, double price, double amount) {
         this.id = id;
         this.expireDate = expireDate;
         this.event = event;
         this.price = price;
+        this.amount = amount;
     }
 
-    public Ticket(LocalDate expireDate, String event, double price) {
+    public Ticket(LocalDate expireDate, String event, double price, double amount) {
         this.expireDate = expireDate;
         this.event = event;
         this.price = price;
+        this.amount = amount;
     }
 
     @PrePersist
     protected void onCreate() {
         this.createdAt = LocalDate.now();
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
     }
 
     public Long getId() {
