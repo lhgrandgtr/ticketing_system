@@ -1,6 +1,6 @@
-package com.coursework.coursework.ticket;
+package main.coursework.ticket;
 
-import com.coursework.coursework.Logger;
+import main.coursework.Logger;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;

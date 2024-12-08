@@ -1,4 +1,4 @@
-package com.coursework.coursework;
+package com.coursework;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

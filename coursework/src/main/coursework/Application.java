@@ -1,6 +1,6 @@
-package com.coursework.coursework;
+package main.coursework;
 
-import com.coursework.coursework.ticket.TicketPool;
+import main.coursework.ticket.TicketPool;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

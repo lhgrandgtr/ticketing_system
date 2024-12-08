@@ -1,4 +1,4 @@
-package com.coursework.coursework;
+package main.coursework;
 
 import java.io.PrintWriter;
 import java.time.LocalDateTime;

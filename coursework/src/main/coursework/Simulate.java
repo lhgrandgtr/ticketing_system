@@ -1,9 +1,9 @@
-package com.coursework.coursework;
+package main.coursework;
 
-import com.coursework.coursework.customer.Customer;
-import com.coursework.coursework.ticket.TicketPool;
-import com.coursework.coursework.ticket.Ticket;
-import com.coursework.coursework.vendor.Vendor;
+import main.coursework.customer.Customer;
+import main.coursework.ticket.TicketPool;
+import main.coursework.ticket.Ticket;
+import main.coursework.vendor.Vendor;
 
 import java.io.FileWriter;
 import java.io.IOException;

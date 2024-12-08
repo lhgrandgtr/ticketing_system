@@ -1,9 +1,9 @@
-package com.coursework.coursework.vendor;
+package main.coursework.vendor;
 
 
-import com.coursework.coursework.Logger;
-import com.coursework.coursework.ticket.Ticket;
-import com.coursework.coursework.ticket.TicketPool;
+import main.coursework.Logger;
+import main.coursework.ticket.Ticket;
+import main.coursework.ticket.TicketPool;
 import java.time.LocalDate;
 import java.util.Random;
 
