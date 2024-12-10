@@ -1,6 +1,6 @@
-package main.coursework;
+package main.backend;
 
-import main.coursework.ticket.TicketPool;
+import main.backend.ticket.TicketPool;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

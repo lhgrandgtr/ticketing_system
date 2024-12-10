@@ -1,9 +1,9 @@
-package main.coursework.vendor;
+package main.backend.vendor;
 
 
-import main.coursework.Logger;
-import main.coursework.ticket.Ticket;
-import main.coursework.ticket.TicketPool;
+import main.backend.Logger;
+import main.backend.ticket.Ticket;
+import main.backend.ticket.TicketPool;
 import java.time.LocalDate;
 import java.util.Random;
 

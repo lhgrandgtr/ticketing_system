@@ -1,7 +1,7 @@
-package main.coursework.customer;
+package main.backend.customer;
 
-import main.coursework.Logger;
-import main.coursework.ticket.TicketPool;
+import main.backend.Logger;
+import main.backend.ticket.TicketPool;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
 

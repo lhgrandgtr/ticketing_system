@@ -1,9 +1,8 @@
-package main.coursework.ticket;
+package main.backend.ticket;
 
-import main.coursework.Logger;
+import main.backend.Logger;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -43,22 +42,6 @@ public class TicketPool {
         return customerRetrievalRate;
     }
 
-    public boolean addTickets(Ticket ticket) {
-        if (currentCapacity.get() >= maxTicketCapacity) {
-            logger.log("Failed to add ticket. Pool has reached maximum capacity.");
-            throw new IllegalStateException("Ticket pool has reached maximum capacity");
-        }
-
-        boolean added = ticketQueue.offer(ticket);
-        if (added) {
-            currentCapacity.incrementAndGet();
-            logger.log("Added ticket: " + ticket);
-        } else {
-            logger.log("Failed to add ticket: " + ticket);
-        }
-        return added;
-    }
-
     public Optional<Ticket> removeTicket() {
         Ticket ticket = ticketQueue.poll();
         if (ticket != null) {
@@ -93,28 +76,6 @@ public class TicketPool {
         return ticket;
     }
 
-    public Optional<Ticket> findTicketById(Long id) {
-        Optional<Ticket> ticket = ticketQueue.stream()
-                .filter(t -> t.getId().equals(id))
-                .findFirst();
-        logger.log("Searched for ticket by ID: " + id + ", Found: " + ticket.isPresent());
-        return ticket;
-    }
-
-    public Optional<Ticket> updateTicket(Long id, Ticket updatedTicket) {
-        return ticketQueue.stream()
-                .filter(ticket -> ticket.getId().equals(id))
-                .findFirst()
-                .map(ticket -> {
-                    ticket.setEvent(updatedTicket.getEvent());
-                    ticket.setExpireDate(updatedTicket.getExpireDate());
-                    ticket.setPrice(updatedTicket.getPrice());
-                    ticket.setAmount(updatedTicket.getAmount());
-                    logger.log("Updated ticket with ID: " + id + ", New details: " + ticket);
-                    return ticket;
-                });
-    }
-
     public boolean addTicket(Ticket ticket) {
         if (findTicketByEvent(ticket.getEvent()).isPresent()) {
             logger.log("Failed to add ticket. Event already exists: " + ticket.getEvent());
@@ -134,40 +95,6 @@ public class TicketPool {
             logger.log("Failed to add ticket: " + ticket);
         }
         return added;
-    }
-
-    public void removeTicketById(Long id) {
-        if (!ticketQueue.removeIf(ticket -> ticket.getId().equals(id))) {
-            logger.log("Failed to remove ticket with ID: " + id);
-            throw new IllegalStateException("Failed to remove ticket from pool");
-        }
-        currentCapacity.decrementAndGet();
-        logger.log("Removed ticket with ID: " + id);
-    }
-
-    public void updateTicket(Long ticketId, String event, LocalDate expireDate, Double price) {
-        Optional<Ticket> ticketOptional = findTicketById(ticketId);
-        if (ticketOptional.isEmpty()) {
-            logger.log("Failed to update ticket. Ticket with ID: " + ticketId + " does not exist.");
-            throw new IllegalStateException("Ticket with id " + ticketId + " does not exist.");
-        }
-
-        Ticket ticket = ticketOptional.get();
-
-        if (event != null && !event.isEmpty() && !ticket.getEvent().equals(event)) {
-            if (findTicketByEvent(event).isPresent()) {
-                logger.log("Failed to update ticket. Event already exists: " + event);
-                throw new IllegalStateException("Event already exists.");
-            }
-            ticket.setEvent(event);
-        }
-        if (expireDate != null) {
-            ticket.setExpireDate(expireDate);
-        }
-        if (price != null && price > 0) {
-            ticket.setPrice(price);
-        }
-        logger.log("Updated ticket with ID: " + ticketId + ", New details: " + ticket);
     }
 
     public Optional<Ticket> purchaseTicket() {

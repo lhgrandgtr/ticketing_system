@@ -1,4 +1,4 @@
-package main.coursework.ticket;
+package main.backend.ticket;
 
 public class TicketRates {
     private int ticketReleaseRate;

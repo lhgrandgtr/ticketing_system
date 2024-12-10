@@ -1,9 +1,9 @@
-package main.coursework;
+package main.backend;
 
-import main.coursework.customer.Customer;
-import main.coursework.ticket.TicketPool;
-import main.coursework.ticket.Ticket;
-import main.coursework.vendor.Vendor;
+import main.backend.customer.Customer;
+import main.backend.ticket.TicketPool;
+import main.backend.ticket.Ticket;
+import main.backend.vendor.Vendor;
 
 import java.io.FileWriter;
 import java.io.IOException;

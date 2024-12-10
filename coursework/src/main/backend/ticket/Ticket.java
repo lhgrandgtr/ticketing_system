@@ -1,4 +1,4 @@
-package main.coursework.ticket;
+package main.backend.ticket;
 
 import java.time.LocalDate;
 
