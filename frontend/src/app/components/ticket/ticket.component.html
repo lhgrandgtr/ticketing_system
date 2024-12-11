@@ -1,14 +1,15 @@
-@if (!tickets.length) {
-    <p>Loading ...</p>
+<ul>
+    <div class="ticket-container">
+    @for (ticket of tickets(); track ticket.id) {
+        <div class="ticket-card">
+            <h4 class="ticket-title">Event: {{ ticket.event }}</h4>
+            <p>Created at: {{ ticket.createdAt }}</p>
+            <p>Price: {{ ticket.price}}</p>
+            <p>Expiration: {{ ticket.expireDate }}</p>
+            <p>No. of available tickets: {{ ticket.amount }}</p>
+        </div>
     }
-    <ul class="todos">
-        @for (ticket of tickets(); track ticket.id) {
-            <li class="tickets">
-               <h4>Event: {{ticket.event}}</h4>
-               <p>Created at: {{ticket.createdAt}}</p>
-               <p>Price: {{ticket.price}}</p>
-               <p>Expiration: {{ticket.expireDate}}</p>
-               <p>No. of available tickets: {{ticket.amount}}</p>
-            </li>
-        }
-    </ul>
+    </div>
+</ul>
+
+

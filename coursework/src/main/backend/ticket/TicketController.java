@@ -37,11 +37,6 @@ public class TicketController {
         return ResponseEntity.ok(ticketPool.getMaxTicketCapacity());
     }
 
-    @GetMapping("/available")
-    public ResponseEntity<Boolean> hasAvailableTickets() {
-        return ResponseEntity.ok(ticketPool.hasAvailableTickets());
-    }
-
     @GetMapping("/get-all-tickets")
     public ResponseEntity<List<Ticket>> getAllTickets() {
         return ResponseEntity.ok(ticketPool.getAllTickets());

@@ -1,5 +1,4 @@
 import { Component, inject, signal } from '@angular/core';
-import { Ticket } from '../../model/ticket.type';
 import { TicketService } from '../../services/ticket.service';
 
 @Component({
@@ -11,7 +10,7 @@ import { TicketService } from '../../services/ticket.service';
 })
 export class GeneralInfoComponent {
   totalTickets = signal(0); 
-  availableTickets = false; 
+  availableTickets = signal(0); 
   releaseRate = signal(0);
   retrivalRate = signal(0); 
 
@@ -33,12 +32,7 @@ export class GeneralInfoComponent {
   loadTicketCount() {
     this.ticketService.getTicketCount().subscribe((count) => {
       this.totalTickets.set(count);
-      this.availableTickets = count > 0;
+
     });
-  }
-  CheckIsAvailable() {
-    this.ticketService.hasAvailableTickets().subscribe(available => {
-      this.availableTickets = available;
-    })
   }
 }
