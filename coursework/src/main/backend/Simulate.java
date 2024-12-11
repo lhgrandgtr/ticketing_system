@@ -49,6 +49,8 @@ public class Simulate {
     }
 
     public void runSimulation() throws InterruptedException {
+        //Source: https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/ExecutorService.html
+        //        https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/Executors.html
         logger.log("Starting simulation with:");
         logger.log("Vendors: " + numVendors);
         logger.log("Customers: " + numCustomers);
